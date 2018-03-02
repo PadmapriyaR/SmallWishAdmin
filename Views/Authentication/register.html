@@ -1,0 +1,26 @@
+<center>
+  <div class="w3-card-4">
+    <div class="w3-container w3-pink">
+  <br>
+  <b><h2 class="w3-myfont">Small Wish</h2></b>
+  <br>
+</div><br><br>
+  <center><img src="img/kidhands.png" class="w3-circle" alt="Logo"></center>
+<div class="w3-container w3-center">  
+<p>
+<center><form class="form-auth w3-myfont" ng-submit="register()">
+	<br>
+	<h2 class="w3-myfont">Register</h2><br>
+	<p class="text-warning">{{error_message}}</p>
+	<input type="email" ng-model="user.email" placeholder="Email" class="form-control" required><br>
+	<input type="username" ng-model="user.username" placeholder="Username" class="form-control" required><br>
+	<input type="password" ng-model="user.password" placeholder="Password" class="form-control" required><br>
+	<!--<select ng-init="user.role = roles[0].name" ng-model="user.role" ng-options="role.name as role.name for role in roles" class="form-control" required></select>--><br>
+	<input type="submit" value="Sign Up" class="w3-btn w3-white w3-border w3-border-teal w3-round" /><br><br>
+	<p><a href="#/login">Login</a></p></center><br>
+</form>
+</center>
+</p>
+</div>
+</div>
+</center>

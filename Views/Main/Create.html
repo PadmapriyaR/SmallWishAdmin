@@ -1,0 +1,136 @@
+<div ng-controller="MainController">
+<div class="navbar navbar-inverse navbar-fixed-top w3-myfont">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Small Wish</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/">Post WishList</a></li>
+                    <!--<li><a href="#/">Manage Event</a></li>-->
+                    <li><a href="#/update">Update WishList</a></li>
+                    <li><a href="#/close">Close WishList</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><p class="navbar-right navbar-text">Signed in as {{current_user}}</p></li>
+                    <li><p class="navbar-right navbar-text" ng-hide="authenticated">
+                        <a href="#/login">Login</a> or <a href="#/register">Register</a>
+                    </p></li>
+                    <li><p class="navbar-right navbar-text" ng-show="authenticated">
+                        <a href="#/login" ng-click="signout()">Logout</a>
+                    </p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<!--<nav class="w3-sidenav navbar-fixed-top w3-collapse w3-theme-l5 w3-animate-left w3-light-grey w3-card-2" style="z-index:3;width:250px;margin-top:51px;" id="mySidenav">
+  <a href="#" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="close menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4><b>Menu</b></h4>
+  <div ng-repeat="mitem in menuItem track by $index">
+  <a href="#" class="w3-hover-black">{{mitem.menus[$index]}}</a>
+  </div>
+  <!--<a href="#" class="w3-hover-black">Link</a>
+  <a href="#" class="w3-hover-black">Link</a>
+  <a href="#" class="w3-hover-black">Link</a>-->
+<!--</nav>-->
+<br><br>
+<center>
+<div ng-submit="createEvent()" class="w3-light-white w3-card-12 w3-myfont">
+    <center><div class="w3-main">
+        <header class="w3-container w3-pink">
+        <br><h1 class="w3-myfont">Post Wish List</h1><br>
+        </header><br>
+        <div class="w3-container">
+            <center><form class="w3-container">
+            <p class="text-warning">{{error_message}}</p>
+            <label class="w3-label">Wish Name</label>
+            <input type="heading" ng-model="admin.heading" class="w3-input w3-border w3-light-grey" required><br>
+            <label class="w3-label">Posted On</label>
+            <input type="date" ng-model="admin.date" class="w3-input w3-border w3-light-grey" required><br>
+            <label class="w3-label">Child Name</label>
+            <input type="venue" ng-model="admin.venue" class="w3-input w3-border w3-light-grey" required><br>
+            <label class="w3-label">Wish Description</label>
+            <input type="eventtype" ng-model="admin.eventtype" class="w3-input w3-border w3-light-grey" required><br>
+            <!--<label class="w3-label">Event Description</label>
+            <input type="description" ng-model="admin.description" class="w3-input w3-border w3-light-grey" required><br>
+            <label class="w3-label">Event Tag</label>
+            <input type="tag" ng-model="admin.tag" class="w3-input w3-border w3-light-grey" required><br>
+            <label class="w3-label">Registration Form URL</label>
+            <input type="url" ng-model="admin.url1" class="w3-input w3-border w3-light-grey" required><br>
+            <label class="w3-label">Google Plus Event URL</label>
+            <input type="url" ng-model="admin.google" class="w3-input w3-border w3-light-grey" required><br>
+            <label class="w3-label">Google Event URL</label>
+            <input type="url" ng-model="admin.url2" class="w3-input w3-border w3-light-grey" required><br>
+            <label class="w3-label">Meetup.com URL</label>
+            <input type="url" ng-model="admin.url3 " class="w3-input w3-border w3-light-grey" required><br>-->
+            <!-- Adding dynamic text fields -->
+            <!--<div>
+                
+              <label class="w3-label" ng-show="showChoiceLabel(choice)">Speakers</label><br>
+              <input type="text" ng-repeat="choice in names track by $index" placeholder="Speaker Name" ng-model="admin.names[$index]" name="" class="w3-input w3-border w3-light-grey" required><br><br>
+              <input type="text" ng-repeat="about in aboutspeakers track by $index" placeholder="Speaker Description" ng-model="admin.aboutspeakers[$index]" name="" class="w3-input w3-border w3-light-grey" required><br>
+              <input type="url" ng-repeat="image in speakerimage track by $index" placeholder="Speaker Image URL" ng-model="admin.speakerimage[$index]" name="" class="w3-input w3-border w3-light-grey" required><br>
+              <!--<input type="text" placeholder="About Speaker" ng-model="admin[choice++]" name="" class="w3-input w3-border w3-light-grey" required>-->
+             <!--</div>   
+              <button  ng-click="addNewChoice()" class="w3-btn w3-purple" style="float: right;">Add another Speaker</button>-->
+              
+            <br><br><br>
+            <!-- -->
+
+            <!-- Adding dynamic Agenda Details -->
+            <!--<div>
+                
+              <label class="w3-label" ng-show="showChoiceLabel(choice)">Agenda</label><br>
+              <input type="text" ng-repeat="time in timings track by $index" placeholder="Time" ng-model="admin.timings[$index]" name="" class="w3-input w3-border w3-light-grey" required><br><br>
+              <input type="text" ng-repeat="aboutag in aboutagenda track by $index" placeholder="Topic" ng-model="admin.aboutagenda[$index]" name="" class="w3-input w3-border w3-light-grey" required><br><br>
+              <!--<input type="text" placeholder="About Speaker" ng-model="admin[choice++]" name="" class="w3-input w3-border w3-light-grey" required>-->
+             <!--</div>     
+              <button  ng-click="addNewAgenda()" class="w3-btn w3-purple" style="float: right;">Add Agenda Details</button>
+              
+            <br><br><br>
+            <!-- -->
+             <label class="w3-label">Wish Status</label>
+            <input type="status" ng-model="admin.status" placeholder="Open/Fulfiled" class="w3-input w3-border w3-light-grey" required><br>
+            <input type="submit" value="Submit" class="w3-btn w3-white w3-border w3-border-pink w3-round" /><br>
+            </form></center>
+        </div>
+        <br><br>
+    </div>
+    <center>
+    <!--<form class="form-auth">
+    <h2>Create Your Event</h2>
+    <p class="text-warning">{{error_message}}</p>
+    <input type="heading" ng-model="admin.heading" placeholder="Enter heading" class="form-control" required><br>
+    <input type="description" ng-model="admin.description" placeholder="Enter Description" class="form-control" required><br>
+    <!--<input type="password" ng-model="user.password" placeholder="Password" class="form-control" required><br>
+    <select ng-init="user.role = roles[0].name" ng-model="user.role" ng-options="role.name as role.name for role in roles" class="form-control" required></select><br>-->
+    <!--<input type="submit" value="Submit" class="btn btn-primary" />
+</form>-->
+    <div class="alert alert-success" ng-show="showSuccessAlert">
+   <button type="button" class="close" data-ng-click="switchBool('showSuccessAlert')" >×</button>
+   <strong>Done!</strong> {{successTextAlert}}
+   <br>
+    </div>
+    </center>
+</div>
+        
+        <!--<div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>-->
+
+</div>
+</div>

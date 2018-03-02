@@ -1,0 +1,93 @@
+<div class="navbar navbar-inverse navbar-fixed-top w3-myfont">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Small Wish</a>
+            </div>
+            
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <!--<li><a href="#/">Manage Event</a></li>-->
+                    <li><a href="#/">Create WishList</a></li>
+                    <li><a href="#/update">Update WishList</a></li>
+                    <li><a href="#/close">Close WishList</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><p class="navbar-right navbar-text">Signed in as {{current_user}}</p></li>
+                    <li><p class="navbar-right navbar-text" ng-hide="authenticated">
+                        <a href="#/login">Login</a> or <a href="#/register">Register</a>
+                    </p></li>
+                    <li><p class="navbar-right navbar-text" ng-show="authenticated">
+                        <a href="#/login" ng-click="signout()">Logout</a>
+                    </p></li>
+                </ul>
+            </div>
+        </div>
+    </div><br><br>
+<!--<center>
+<div class="w3-card-12" ng-controller="MainController">
+  <header class="w3-container w3-teal">
+        <h1>Create Event</h1>
+    </header>
+  <div class="w3-container w3-center" ng-repeat="admin in admin">
+    <p><a class="w3-btn w3-white w3-border w3-border-teal w3-round" href="#/">Display All Events</a></p>
+    
+    
+  </div>
+</div>
+</center><br><br>-->
+<center>
+<div class="w3-card-12 w3-myfont" ng-controller="MainController">
+  <header class="w3-container w3-pink">
+        <br><h1 class="w3-myfont">Update Wish List</h1><br>
+    </header>
+  <div class="w3-container w3-center"><br>
+    <p><a class="w3-btn w3-white w3-border w3-border-pink w3-round" ng-click="showEvents()">Display All Wishes</a></p>
+    <div>
+    	<table class="w3-table w3-bordered w3-striped w3-card-4">
+    		<tr>
+                <th>Child Name</th>
+    			<th>Wish List(s)</th>
+    			<th>Status</th>
+    			<th>Action</th>
+                <th>Send Thanks</th>
+    		</tr>
+    		<!--<tr ng-repeat="event in events">-->
+            <tr ng-repeat="admin in admins">
+                <td>{{ admin.venue }}</td>
+                <td>{{ admin.heading }}</td>
+                <td>{{ admin.status }}</td>
+    			<!--<td>{{ event.heading }}</td>
+    			<td>{{ event.status }}</td>
+                <td>{{ event.current_status }}</td>	-->
+    			<td><button class="w3-btn w3-white w3-border w3-border-red w3-round" ng-click="editEvent(admin._id)">Edit Status</button></td>
+                <td ng-click="clicked=true">
+                    <span ng-hide="clicked">Click to send Thanks!!</span>
+                    <span ng-if="clicked"><button ng-model="send.thanks" class="w3-btn w3-border w3-border-pink w3-round"><i class="em em-slightly_smiling_face"></i>
+                    </button></span>
+                </td>
+    		</tr>	
+    	</table>	
+    	
+    </div>
+    <br>
+
+    <!--<div ng-repeat="event in events track by $index">
+                
+                <td>{{ event.status[$index] }}</td>
+                
+                
+            </div>-->
+            <div>
+    <center><label class="w3-label">Wish Status</label>
+            <input type="text" ng-model="admin.status" placeholder="Open/Fulfiled" class="w3-input w3-border w3-light-grey" required></center><br>
+            <button class="w3-btn w3-white w3-border w3-border-red w3-round" ng-click="updateStatus()">Update Status</button><br>
+            </div>
+    <br>	
+  </div>
+</div>
+</center><br><br>

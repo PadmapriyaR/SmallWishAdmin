@@ -1,0 +1,48 @@
+﻿<div class="navbar navbar-inverse navbar-fixed-top w3-myfont">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Small Wish</a>
+            </div>
+            
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/">Post WishList</a></li>
+                    <!--<li><a href="#/">Manage Event</a></li>-->
+                    <li><a href="#/update">Update WishList</a></li>
+                    <li><a href="#/close">Close WishList</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><p class="navbar-right navbar-text">Signed in as {{current_user}}</p></li>
+                    <li><p class="navbar-right navbar-text" ng-hide="authenticated">
+                        <a href="#/login">Login</a> or <a href="#/register">Register</a>
+                    </p></li>
+                    <li><p class="navbar-right navbar-text" ng-show="authenticated">
+                        <a href="#/login" ng-click="signout()">Logout</a>
+                    </p></li>
+                </ul>
+            </div>
+        </div>
+    </div><br><br>
+
+<center>
+<div class="w3-card-4 w3-myfont" ng-controller="MainController">
+  <header class="w3-container w3-pink">
+        <br><h1 class="w3-myfont">Close Wish Lists</h1><br>
+    </header>
+  <div class="w3-container w3-center"><br><br>
+    <p>Are you want to Remove the Previous wishes from the Database</p><br>
+    <p><a class="w3-btn w3-white w3-border w3-border-pink w3-round" ng-click="deleteEvent()">Yes</a>&nbsp;&nbsp;&nbsp;
+    <a class="w3-btn w3-white w3-border w3-border-pink w3-round" href="#/">No</a></p><br><br>
+  </div>
+  <div class="alert alert-danger" ng-show="showAlert">
+   <button type="button" class="close" data-ng-click="switchBooll('showAlert')" >×</button>
+   {{successAlert}}
+    </div>
+</div>
+</center><br><br>
+<center>

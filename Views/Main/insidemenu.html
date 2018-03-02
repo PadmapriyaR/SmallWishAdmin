@@ -1,0 +1,82 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Geek Events</a>
+            </div>
+            
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/">Create Event</a></li>
+                    <!--<li><a href="#/">Manage Event</a></li>-->
+                    <li><a href="#/update">Update Event</a></li>
+                    <li><a href="#/close">Close Event</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><p class="navbar-right navbar-text">Signed in as {{current_user}}</p></li>
+                    <li><p class="navbar-right navbar-text" ng-hide="authenticated">
+                        <a href="#/login">Login</a> or <a href="#/register">Register</a>
+                    </p></li>
+                    <li><p class="navbar-right navbar-text" ng-show="authenticated">
+                        <a href="#/login" ng-click="signout()">Logout</a>
+                    </p></li>
+                </ul>
+            </div>
+        </div>
+    </div><br><br>
+<div ng-controller="MainController">
+    <center><div class="w3-card-12">
+        <header class="w3-container w3-teal">
+        <h1>Create Website</h1>
+        </header><br>
+        <div class="w3-container w3-center">
+            <center><form class="w3-container">
+            <p class="text-warning">{{error_message}}</p>
+            <label class="w3-label">Event Name</label>
+            <input type="heading" ng-model="menuDetails.heading" class="w3-input w3-border w3-light-grey" required><br>
+            <!-- Adding dynamic Agenda Details -->
+           <div>
+                
+              <label class="w3-label" ng-show="showChoiceLabel(choice)">Menus</label><br><br>
+              <input type="text" ng-repeat="menu in menus track by $index" placeholder="Menu" ng-model="menuDetails.menu[$index]" name="" class="w3-input w3-border w3-light-grey"><br><br>
+              <br>
+              <!--<input type="text" placeholder="About Speaker" ng-model="admin[choice++]" name="" class="w3-input w3-border w3-light-grey" required>-->
+             </div>    
+              <button  ng-click="addNewMenu()" class="w3-btn w3-purple" style="float: right;">Add SideMenus</button>
+              
+            <br><br><br>
+            <!-- -->
+            <a href="#/" class="w3-btn w3-white w3-border w3-border-teal w3-round" ng-click="saveMenus()">Next</a><br>
+            </form></center>
+        </div>
+        <br><br>
+    </div>
+    <center>
+    <!--<form class="form-auth">
+    <h2>Create Your Event</h2>
+    <p class="text-warning">{{error_message}}</p>
+    <input type="heading" ng-model="admin.heading" placeholder="Enter heading" class="form-control" required><br>
+    <input type="description" ng-model="admin.description" placeholder="Enter Description" class="form-control" required><br>
+    <!--<input type="password" ng-model="user.password" placeholder="Password" class="form-control" required><br>
+    <select ng-init="user.role = roles[0].name" ng-model="user.role" ng-options="role.name as role.name for role in roles" class="form-control" required></select><br>-->
+    <!--<input type="submit" value="Submit" class="btn btn-primary" />
+</form>-->
+    </center>
+</div>
+        
+        <!--<div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>-->
+
+</div>
