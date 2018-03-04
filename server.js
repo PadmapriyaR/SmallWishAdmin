@@ -107,7 +107,7 @@ app.delete('/deleteevent', function(req, res){
 });
 
 //running server on node
-app.listen(process.env.PORT || 3000, '0.0.0.0', function(){
+app.listen(process.env.PORT || 3000, () => {
 	console.log('Magic is happening on port number 3000!!');	
 });
 
