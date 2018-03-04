@@ -107,8 +107,12 @@ app.delete('/deleteevent', function(req, res){
 });
 
 //running server on node
-app.listen(process.env.PORT || 8080);
-console.log('Magic is happening on port number 8080!!');
+app.listen(process.env.PORT || 3000, '0.0.0.0', function(){
+	console.log('Magic is happening on port number 3000!!');	
+});
+
+/*app.listen(process.env.PORT || 8080);
+console.log('Magic is happening on port number 8080!!');*/
 
 /*var server = app.listen(3000, function () {
   var host = server.address().address;
